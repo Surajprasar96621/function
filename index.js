@@ -1,78 +1,33 @@
-
-function BankAccount(accountNumber, name, type, balance) {
-    this.accountNumber = accountNumber;
+function Author(name, birthYear, nationality) {
     this.name = name;
-    this.type = type;
-    this.balance = balance;
-    this.active = true;
-  }
-
-  BankAccount.prototype.deposit = function (amount) {
-    if (amount <= 0) {
-      console.error("Invalid deposit amount");
-      return;
-    }
-  
-    this.balance += amount;
-    console.log(`${amount} deposited into account ${this.accountNumber}`);
-  };
-  
-
-  BankAccount.prototype.withdraw = function (amount) {
-    if (amount <= 0) {
-      console.error("Invalid withdrawal amount");
-      return;
-    }
-  
-    if (amount > this.balance) {
-      console.error("Insufficient balance for withdrawal");
-      return;
-    }
-  
-    this.balance -= amount;
-    console.log(`${amount} withdrawn from account ${this.accountNumber}`);
-  };
-  
-  
-  BankAccount.prototype.checkBalance = function () {
-    console.log(`Account ${this.accountNumber} balance: ${this.balance}`);
-  };
-  
-
-  BankAccount.prototype.isActive = function () {
-    return this.active;
-  };
-  
-  
-  const account1 = new BankAccount(12345678, "Souman Doe", "Savings", 1000);
-  const account2 = new BankAccount(987654321, "Jainam Smith", "Checking", 500);
-  
-  account1.deposit(500);
-  account2.deposit(200);
-  
-  account1.withdraw(300);
-  account2.withdraw(150);
-  
-  account1.checkBalance();
-  account2.checkBalance();
-  
-  account2.active = false;
-  
-  console.log(`Account 1 active: ${account1.isActive()}`);
-  console.log(`Account 2 active: ${account2.isActive()}`);
-  
-  function getTotalBalance() {
-    let totalBalance = 0;
-    const accounts = [account1, account2];
-  
-    for (const account of accounts) {
-      if (account.isActive()) {
-        totalBalance += account.balance;
-      }
-    }
-  
-    return totalBalance;
+    this.birthYear = birthYear;
+    this.nationality = nationality;
   }
   
-  console.log(`Total balance of active accounts: ${getTotalBalance()}`);
+  function Book(title, author, genre, price) {
+    this.title = title;
+    this.author = author; 
+    this.genre = genre;
+    this.price = price;
+  }
+  
+  
+  Book.prototype.getBookInfo = function () {
+    console.log(`Title: ${this.makingMoney}`);
+    console.log(`Author: ${this.Patnayak}`);
+    console.log(`Genre: ${this.june1587year}`);
+    console.log(`Price: $${this.price25000}`);
+    console.log('getBookInfo');
+  };
+  
+  
+  const author1 = new Author('John Doe', 1980, 'American');
+  const author2 = new Author('Jane Smith', 1975, 'British');
+  
+
+  const book1 = new Book('Book One', author1, 'Fiction', 20.99);
+  const book2 = new Book('Book Two', author2, 'Mystery', 15.49);
+  
+  book1.getBookInfo();
+  book2.getBookInfo();
   
